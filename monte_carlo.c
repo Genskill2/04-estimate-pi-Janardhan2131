@@ -4,6 +4,21 @@
 #include <math.h>
 
 float mc_pi(int);
+float mc_pi(int n ){
+   int incircle = 0;
+   
+  for ( int i=0; i<n ;i++ ){
+  float x = frandom();
+  float y= frandom();
+  float  d= x*x + y*y;
+  if ( d <= 1 ){
+   incircle++;
+   }
+  }
+  float pi = 4*(float)incircle/n;
+   return pi;   
+  
+  }
 
 float frandom() {
   long int q = random();
@@ -36,21 +51,6 @@ int main(void) {
       printf("Estimate with even %d iterations is %f which is not accurate enough.\n", i, pi0);
       abort();
     }
-  }
-  float mc_pi(int n ){
-   int incircle = 0;
-   
-  for ( int i=0; i<n ;i++ ){
-  float x = frandom();
-  float y= frandom();
-  float  d= x*x + y*y;
-  if ( d <= 1 ){
-   incircle++;
-   }
-  }
-  float pi = 4*(float)incircle/n;
-   return pi;   
-  
   }
 }
 
